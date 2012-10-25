@@ -20,14 +20,16 @@ Background: movies have been added to database
   | Chicken Run             | G      | 21-Jun-2000  |
 
   And I am on the RottenPotatoes home page
+  And I check the following ratings: G, PG, R, NC-17
 
 Scenario: sort movies alphabetically
-  Given I uncheck the following ratings: G, PG, R, NC-17
   When I follow "Movie Title"
   Then I should see all of the movies
-  # your steps here
+  And I should see "Chicken Run" before "The Terminator"
 
 Scenario: sort movies in increasing order of release date
   When I follow "Release Date"
-  # your steps here
+  Then I should see all of the movies
+  And I should see "The Terminator" before "Chicken Run" 
+  And I should see "2001" before "Chocolat" 
 
