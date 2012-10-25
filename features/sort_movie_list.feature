@@ -22,7 +22,9 @@ Background: movies have been added to database
   And I am on the RottenPotatoes home page
 
 Scenario: sort movies alphabetically
+  Given I uncheck the following ratings: G, PG, R, NC-17
   When I follow "Movie Title"
+  Then I should see all of the movies
   # your steps here
 
 Scenario: sort movies in increasing order of release date

@@ -14,8 +14,13 @@ group :development, :test do
   gem 'launchy'
 end
 group :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+#  gem 'spork', '~> 1.0rc3'
   gem 'cucumber-rails'
   gem 'cucumber-rails-training-wheels'
+  gem 'pry'
+  gem 'pry-rails'
 end
 group :production do
 #  gem 'pg'
