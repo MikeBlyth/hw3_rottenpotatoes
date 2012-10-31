@@ -11,11 +11,11 @@ describe Movie do
     end
 
     it 'returns list of movies with same director as self' do
-      @hit_1.director_search.sort.should eq [@hit_1, @hit_2]
+      Movie.director_search(@hit_1).sort.should eq [@hit_1, @hit_2]
     end
 
     it 'returns no movies if director is empty' do
-      @miss_2.director_search.should be_nil
+      Movie.director_search(@miss_2).should be_nil
     end
 
   end

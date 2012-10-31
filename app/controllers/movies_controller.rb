@@ -1,7 +1,12 @@
 class MoviesController < ApplicationController
-
+  
   def director_search
-	  @movies = Movie.director_search(params['id'])
+    id = params['id']
+	  @movies = Movie.director_search(id)
+    unless @movies
+      flash[:notice] = "'#{Movie.find(id).title}' has no director info"
+      redirect_to(movies_path) 
+    end
   end
 
   def show
@@ -28,6 +33,7 @@ class MoviesController < ApplicationController
     if params[:sort] != session[:sort] or params[:ratings] != session[:ratings]
       session[:sort] = sort
       session[:ratings] = @selected_ratings
+      flash = flash
       redirect_to :sort => sort, :ratings => @selected_ratings and return
     end
     @movies = Movie.find_all_by_rating(@selected_ratings.keys, ordering)

@@ -13,6 +13,7 @@ group :development, :test do
   gem 'launchy'
   gem 'pry'
   gem 'pry-rails'
+  gem 'pry-debugger'
 end
 group :test do
   gem 'rspec'
@@ -21,6 +22,7 @@ group :test do
   gem 'capybara'
   gem 'cucumber-rails'
   gem 'cucumber-rails-training-wheels'
+  gem 'simplecov'
 end
 group :production do
 #  gem 'pg'

@@ -3,9 +3,10 @@ class Movie < ActiveRecord::Base
     %w(G PG PG-13 NC-17 R)
   end
 
-  def director_search
-    return nil if self.director.blank?
-    Movie.where('director = ?', self.director)
+  def self.director_search(id)
+    base = Movie.find(id)
+    return nil if base.nil? || base.director.blank?
+    Movie.where('director = ?', base.director)
   end
 
 end
