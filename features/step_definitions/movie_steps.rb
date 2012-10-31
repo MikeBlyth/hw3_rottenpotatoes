@@ -62,3 +62,18 @@ Then /^I should see no movies with ratings: (.*)/ do |rating_list|
 	extract_movies.each{|movie| unselected.should_not include(movie[0]) }
 end
 
+When /^I go to the edit page for "(.*)"$/ do |title|
+  movie = Movie.find_by_title(title)
+  visit edit_movie_path(movie)
+end
+
+Given /^I am on the details page for "(.*)"$/ do |title|
+  movie = Movie.find_by_title(title)
+  visit movie_path(movie)
+end
+
+Then /^the director of "(.*?)" should be "(.*?)"$/ do |title, director|
+  movie = Movie.find_by_title(title)
+	movie.director.should eq director
+end
+

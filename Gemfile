@@ -10,17 +10,17 @@ group :development, :test do
   gem 'sqlite3'
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'database_cleaner'
-  gem 'capybara'
   gem 'launchy'
+  gem 'pry'
+  gem 'pry-rails'
 end
 group :test do
   gem 'rspec'
   gem 'rspec-rails'
 #  gem 'spork', '~> 1.0rc3'
+  gem 'capybara'
   gem 'cucumber-rails'
   gem 'cucumber-rails-training-wheels'
-  gem 'pry'
-  gem 'pry-rails'
 end
 group :production do
 #  gem 'pg'
