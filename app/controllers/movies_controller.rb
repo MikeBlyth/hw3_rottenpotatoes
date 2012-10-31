@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
 
   def director_search
+	  @movies = Movie.director_search(params['id'])
   end
 
   def show
